@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 void main() {
   runApp(MyApp());
@@ -89,8 +91,43 @@ class MyApp extends StatelessWidget {
 
   Container _courseSection() {
     return Container(
-      height: 250,
-      color: Colors.yellow,
+      padding: EdgeInsets.all(8),
+      margin: EdgeInsets.only(
+        top: 70,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Website & Videos"),
+          ),
+          Container(
+            height: 120,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                _buildCardListView(
+                  url:
+                      'https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg',
+                ),
+                _buildCardListView(
+                  url:
+                      'https://www.pressgazette.co.uk/wp-content/uploads/2020/11/shutterstock.jpg',
+                ),
+                _buildCardListView(
+                  url:
+                      'https://c.tadst.com/gfx/600x337/moon-photography-camera.jpg?1',
+                ),
+                _buildCardListView(
+                  url:
+                      'https://imagevars.gulfnews.com/2020/03/11/Reader-picture_170c9c693f4_original-ratio.jpg',
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 
@@ -116,4 +153,10 @@ class MyApp extends StatelessWidget {
       ],
     );
   }
+}
+
+Card _buildCardListView({String url}) {
+  return Card(
+    child: FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: url)
+  );
 }
