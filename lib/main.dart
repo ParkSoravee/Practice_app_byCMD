@@ -16,7 +16,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      darkTheme: ThemeData.dark(),
+      //darkTheme: ThemeData.dark(),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        appBarTheme: AppBarTheme(
+          color: Colors.black,
+          brightness: Brightness.dark,
+          centerTitle: true,
+          //elevation: 5.0,
+
+        ),
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: Text(_title),
