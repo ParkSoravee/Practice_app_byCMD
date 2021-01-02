@@ -12,7 +12,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
       title: _title,
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -28,6 +27,13 @@ class MyApp extends StatelessWidget {
             _headerSection(),
             _titleSection(),
             _buttonSection(),
+            Padding(
+              padding: const EdgeInsets.all(40.0),
+              child: Image.network(
+                'https://idgthailand.b-cdn.net/wp-content/uploads/2015/04/Amazon.com-Logo.svg_.png',
+                //color: MediaQuery.of(context).platformBrightness == Brightness.dark ? Colors.orange[300] : null,
+              ),
+            ),
             _courseSection(),
           ],
         ),
@@ -97,9 +103,9 @@ class MyApp extends StatelessWidget {
   Container _courseSection() {
     return Container(
       padding: EdgeInsets.all(8),
-      margin: EdgeInsets.only(
-        top: 70,
-      ),
+      // margin: EdgeInsets.only(
+      //   top: 0,
+      // ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -162,6 +168,6 @@ class MyApp extends StatelessWidget {
 
 Card _buildCardListView({String url}) {
   return Card(
-    child: FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: url)
-  );
+      child: FadeInImage.memoryNetwork(
+          placeholder: kTransparentImage, image: url));
 }
