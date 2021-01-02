@@ -77,6 +77,7 @@ class MyApp extends StatelessWidget {
   Container _buttonSection() {
     return Container(
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           _buildButtonColumn(icon: Icons.thumb_up, label: "Like"),
           _buildButtonColumn(icon: Icons.comment, label: "Comment"),
@@ -94,8 +95,25 @@ class MyApp extends StatelessWidget {
   }
 
   Column _buildButtonColumn({IconData icon, String label}) {
+    var iconColor = Colors.grey.shade500;
     return Column(
-      children: [],
+      children: [
+        Icon(
+          icon,
+          color: iconColor,
+        ),
+        Container(
+          margin: EdgeInsets.only(top: 8),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.bold,
+              color: iconColor,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
